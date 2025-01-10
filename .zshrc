@@ -26,11 +26,33 @@ zinit cdreplay -q
 
 autoload -U compinit && compinit
 
-# Shell integration
+# fzf shell integration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
+# fzf configuration
+export FZF_DEFAULT_OPTS="--height 100% --layout=default --border"
+export FZF_DEFAULT_COMMAND="find . -type f ! -path '*git*'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'batcat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# bat configuration
+export BAT_THEME="ansi"
 
 # Aliases
-cd='z'
+alias ls="eza --long --all --icons=always --header --git --total-size --no-user --no-time"
 
 # Keybindings
 bindkey '^f' autosuggest-accept
