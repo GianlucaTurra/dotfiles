@@ -15,8 +15,52 @@ fi
 # Source the zinit file
 source "${ZINIT_HOME}/zinit.zsh"
 
-zinit light zsh-users/zsh-completions # completions
+# Plugins
+zinit light zsh-users/zsh-completions 
+zinit light zsh-users/zsh-autosuggestions 
+zinit light Aloxaf/fzf-tab
+# Snippets
+zinit snippet OMZP::git
 
+zinit cdreplay -q
+
+autoload -U compinit && compinit
+
+# Shell integration
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Aliases
+cd='z'
+
+# Keybindings
+bindkey '^f' autosuggest-accept
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# History for autosuggestions
+HISTSIZE=2500
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Syntax-Highlight ALWAYS AT THE END
 zinit light zsh-users/zsh-syntax-highlighting
+
+# zxoide ZSH
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init zsh)"
+
