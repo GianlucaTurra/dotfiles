@@ -1,6 +1,10 @@
 # Startship
 eval "$(starship init zsh)" 
 
+# Set nvim as default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # Plugin manager Zinit
 
 # Home directory for zinit and plugins
