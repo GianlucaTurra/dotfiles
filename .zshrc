@@ -66,7 +66,7 @@ function y() {
 }
 
 # Aliases
-alias ls="eza --long --all --icons=always --header --git --total-size --no-user --no-time"
+alias ez="eza --long --all --icons=always --header --git --total-size --no-user --no-time"
 
 # Keybindings
 bindkey '^f' autosuggest-accept
@@ -98,5 +98,5 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 # zxoide ZSH
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
