@@ -4,6 +4,7 @@ eval "$(starship init zsh)"
 # Set nvim as default editor
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export PATH=$(go env GOPATH)/bin:$PATH # golang
 
 # Plugin manager Zinit
 
