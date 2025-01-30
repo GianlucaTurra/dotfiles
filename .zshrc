@@ -67,6 +67,8 @@ function y() {
 
 # Aliases
 alias ez="eza --long --all --icons=always --header --git --total-size --no-user --no-time"
+alias vsc="code ."
+alias nvi="nvim ."
 
 # Keybindings
 bindkey '^f' autosuggest-accept
