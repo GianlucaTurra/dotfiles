@@ -96,9 +96,6 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Syntax-Highlight ALWAYS AT THE END
-zinit light zsh-users/zsh-syntax-highlighting
-
 # zxoide ZSH
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh --cmd cd)"
@@ -107,3 +104,10 @@ eval "$(zoxide init zsh --cmd cd)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Homebrew for linux
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Syntax-Highlight ALWAYS AT THE END
+zinit light zsh-users/zsh-syntax-highlighting
+
