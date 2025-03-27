@@ -1,4 +1,5 @@
 .config/tmux/plugins/
-.config/nvim
 .config/go
 .config/neofetch
+.config/dlv
+.config/nvim.bak/
