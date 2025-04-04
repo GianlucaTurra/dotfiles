@@ -108,6 +108,9 @@ export NVM_DIR="$HOME/.nvm"
 # Homebrew for linux
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# True color ?
+export TERM="tmux-256color"
+
 # Syntax-Highlight ALWAYS AT THE END
 zinit light zsh-users/zsh-syntax-highlighting
 
