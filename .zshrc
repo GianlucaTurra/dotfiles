@@ -1,3 +1,6 @@
+# This is from brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Startship
 eval "$(starship init zsh)" 
 
@@ -5,6 +8,7 @@ eval "$(starship init zsh)"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH=$(go env GOPATH)/bin:$PATH # golang
+export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
 
 # Plugin manager Zinit
 
@@ -31,27 +35,34 @@ zinit cdreplay -q
 
 autoload -U compinit && compinit
 
-# fzf shell integration
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-_fzf_comprun() {
-  local command=$1
-  shift
+# NOTE fzf
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border"
 
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    *)            fzf "$@" ;;
-  esac
-}
+# fzf shell integration
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# _fzf_comprun() {
+#   local command=$1
+#   shift
+#
+#   case "$command" in
+#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+#     *)            fzf "$@" ;;
+#   esac
+# }
 
 # fzf configuration
-export FZF_DEFAULT_OPTS="--height 100% --layout=default --border"
-export FZF_DEFAULT_COMMAND="find . -type f ! -path '*git*'"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="
-  --walker-skip .git,node_modules,target
-  --preview 'batcat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+# export FZF_DEFAULT_OPTS="--height 100% --layout=default --border"
+# export FZF_DEFAULT_COMMAND="find . -type f ! -path '*git*'"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_CTRL_T_OPTS="
+#   --walker-skip .git,node_modules,target
+#   --preview 'batcat -n --color=always {}'
+#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # bat configuration
 export BAT_THEME="ansi"
@@ -105,8 +116,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Homebrew for linux
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# True color ?
+export TERM="tmux-256color"
 
 # True color ?
 export TERM="tmux-256color"
