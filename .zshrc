@@ -82,6 +82,7 @@ alias ez="eza --long --all --icons=always --header --git --total-size --no-user 
 alias vsc="code ."
 alias nvi="nvim ."
 alias dj="python manage.py"
+alias lgit="lazygit"
 
 # Keybindings
 bindkey '^y' autosuggest-accept
