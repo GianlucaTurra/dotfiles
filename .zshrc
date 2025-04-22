@@ -78,11 +78,7 @@ function y() {
 }
 
 # Aliases
-alias ez="eza --long --all --icons=always --header --git --total-size --no-user --no-time"
-alias vsc="code ."
-alias nvi="nvim ."
-alias dj="python manage.py"
-alias lgit="lazygit"
+source .zsh_aliases
 
 # Keybindings
 bindkey '^y' autosuggest-accept
