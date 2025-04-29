@@ -6,3 +6,11 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Identify Django's templates
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "**/templates/*.html", "**/template/**/*.html", "*.djhtml" },
+    callback = function()
+        vim.bo.filetype = "django-html"
+    end,
+})
