@@ -11,6 +11,6 @@
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "**/templates/*.html", "**/template/**/*.html", "*.djhtml" },
     callback = function()
-        vim.bo.filetype = "django-html"
+        vim.bo.filetype = "htmldjango"
     end,
 })
