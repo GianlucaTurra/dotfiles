@@ -122,4 +122,3 @@ export TERM="tmux-256color"
 
 # Syntax-Highlight ALWAYS AT THE END
 zinit light zsh-users/zsh-syntax-highlighting
-
