@@ -21,6 +21,8 @@ if [ ! -d "$ZINIT_HOME" ]; then
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+autoload -Uz compinit && compinit
+
 # Source the zinit file
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -33,36 +35,12 @@ zinit snippet OMZP::git
 
 zinit cdreplay -q
 
-autoload -U compinit && compinit
-
 # NOTE fzf
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_DEFAULT_OPTS="--height 50% --layout=default --border"
-
-# fzf shell integration
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# _fzf_comprun() {
-#   local command=$1
-#   shift
-#
-#   case "$command" in
-#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-#     *)            fzf "$@" ;;
-#   esac
-# }
-
-# fzf configuration
-# export FZF_DEFAULT_OPTS="--height 100% --layout=default --border"
-# export FZF_DEFAULT_COMMAND="find . -type f ! -path '*git*'"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_CTRL_T_OPTS="
-#   --walker-skip .git,node_modules,target
-#   --preview 'batcat -n --color=always {}'
-#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # bat configuration
 export BAT_THEME="ansi"
@@ -75,6 +53,10 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+function theme() {
+    bash -c "$(wget -qO- https://git.io/vQgMr)"
 }
 
 # Aliases
@@ -115,10 +97,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # True color ?
-export TERM="tmux-256color"
-
-# True color ?
-export TERM="tmux-256color"
+# export TERM="tmux-256color"
 
 # Syntax-Highlight ALWAYS AT THE END
 zinit light zsh-users/zsh-syntax-highlighting
