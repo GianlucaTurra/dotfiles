@@ -15,7 +15,7 @@ return {
         ---@class PluginLspOpts
         opts = {
             servers = {
-                html = { filetypes = { "html", "vue", "django-html" } },
+                html = { filetypes = { "html", "vue", "htmldjango" } },
             },
         },
     },
