@@ -5,3 +5,13 @@ deps = []
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "78d1d19"
 hash = ""
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "b3950bf"
+hash = ""
+
+[[flavor.deps]]
+use = "AdithyanA2005/nord"
+rev = "99d2c18"
+hash = ""
