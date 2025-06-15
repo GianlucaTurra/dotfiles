@@ -78,7 +78,7 @@ function y() {
 }
 
 # Aliases
-source .zsh_aliases
+source ~/.zsh_aliases
 
 # Keybindings
 bindkey '^y' autosuggest-accept
