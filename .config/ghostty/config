@@ -1,0 +1,4 @@
+font-family = "Commit Mono Nerd Font"
+theme = tokyonight-storm
+cursor-style = block
+background-opacity = 0.85
