@@ -57,7 +57,10 @@ function y() {
 }
 
 # Aliases
-source .zsh_aliases
+source ~/.zsh_aliases
+
+# Always allow vi-mode
+bindkey -v
 
 # Keybindings
 bindkey '^y' autosuggest-accept
@@ -96,4 +99,3 @@ export TERM="tmux-256color"
 
 # Syntax-Highlight ALWAYS AT THE END
 zinit light zsh-users/zsh-syntax-highlighting
-
