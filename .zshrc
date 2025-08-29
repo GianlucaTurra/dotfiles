@@ -30,6 +30,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 # Snippets
 zinit snippet OMZP::git
+zinit snippet OMZP::docker
 
 zinit cdreplay -q
 
@@ -41,28 +42,6 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_DEFAULT_OPTS="--height 50% --layout=default --border"
-
-# fzf shell integration
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# _fzf_comprun() {
-#   local command=$1
-#   shift
-#
-#   case "$command" in
-#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-#     *)            fzf "$@" ;;
-#   esac
-# }
-
-# fzf configuration
-# export FZF_DEFAULT_OPTS="--height 100% --layout=default --border"
-# export FZF_DEFAULT_COMMAND="find . -type f ! -path '*git*'"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_CTRL_T_OPTS="
-#   --walker-skip .git,node_modules,target
-#   --preview 'batcat -n --color=always {}'
-#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # bat configuration
 export BAT_THEME="ansi"
@@ -104,11 +83,6 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 zstyle ':completion:*' menu no 
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# zxoide ZSH
-export PATH="$HOME/.local/bin:$PATH"
-eval "$(zoxide init zsh --cmd cd)"
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
