@@ -32,9 +32,9 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::docker
 
-zinit cdreplay -q
-
 autoload -U compinit && compinit
+
+zinit cdreplay -q
 
 # NOTE fzf
 eval "$(fzf --zsh)"
