@@ -8,3 +8,6 @@ vim.opt.expandtab = true -- Convert tabs to spaces
 -- Language spell check
 vim.opt.spell = true
 vim.opt.spelllang = "en,it"
+
+-- Clipboard
+vim.opt.clipboard = "unnamedplus" -- Use the system clipboard
