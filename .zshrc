@@ -65,6 +65,7 @@ bindkey -v
 bindkey '^y' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+bindkey -s '^o' 'clear\n'
 
 # History for autosuggestions
 HISTSIZE=2500
