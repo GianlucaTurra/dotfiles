@@ -1,3 +1,5 @@
+autoload -U compinit && compinit
+
 # This is from brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -33,7 +35,6 @@ zinit snippet OMZP::git
 
 zinit cdreplay -q
 
-autoload -U compinit && compinit
 
 # NOTE fzf
 eval "$(fzf --zsh)"
