@@ -15,6 +15,6 @@ return {
         vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "none" })
         vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
         vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "none" })
-        vim.cmd("colorscheme rose-pine")
+        vim.cmd("colorscheme rose-pine-moon")
     end,
 }
