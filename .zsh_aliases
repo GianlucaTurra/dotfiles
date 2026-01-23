@@ -1,5 +1,6 @@
 
-alias ez="eza --long --all --icons=always --header --git --total-size --no-user --no-time"
+alias ez="eza --long --all --icons=always --group-directories-first --header --git --total-size"
+alias l="eza --oneline --icons=always --all --group-directories-first"
 alias vsc="code ."
 alias nvi="nvim ."
 alias dj="python manage.py"

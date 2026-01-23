@@ -11,6 +11,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH=$(go env GOPATH)/bin:$PATH # golang
 export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
 # Plugin manager Zinit
 
