@@ -6,5 +6,7 @@ vim.opt.shiftwidth = 4 -- Indentation level is 4 spaces
 vim.opt.expandtab = true -- Convert tabs to spaces
 
 -- Language spell check
-vim.opt.spell = true
-vim.opt.spelllang = "en,it"
+-- vim.opt.spell = true
+-- vim.opt.spelllang = "en,it"
+vim.opt.spelllang = { "en_us" }
+vim.opt.spell = false
