@@ -7,4 +7,4 @@ vim.opt.expandtab = true -- Convert tabs to spaces
 
 -- Language spell check
 vim.opt.spell = true
-vim.opt.spelllang = "en,it"
+vim.opt.spelllang = "en"

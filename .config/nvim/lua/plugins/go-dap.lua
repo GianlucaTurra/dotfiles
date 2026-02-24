@@ -3,7 +3,7 @@ return {
         dap_configurations = {
             {
                 type = "go",
-                name = "Attach remote",
+                name = "Attach dlv",
                 mode = "remote",
                 request = "attach",
                 port = 43000,

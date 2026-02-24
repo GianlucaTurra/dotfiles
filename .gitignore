@@ -3,6 +3,10 @@
 .config/neofetch
 .config/dlv
 .config/nvim.bak/
+.config/nvim/lazy-lock.json
+.config/nvim/lazyvim.json
 .config/gh/
 .config/nvim/spell
 .config/yazi/flavors
+.config/btop/
+
