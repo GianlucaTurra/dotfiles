@@ -1,0 +1,10 @@
+cursor-style = block
+cursor-style-blink = true
+
+window-decoration = "none"
+
+background-opacity = 0.85
+theme = TokyoNight
+
+font-family = Hack Nerd Font
+font-size = 12
