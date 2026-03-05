@@ -5,5 +5,7 @@
 .config/nvim.bak/
 .config/gh/
 .config/nvim/spell
+.config/nvim/lazyvim.json
+.config/nvim/lazy-lock.json
 .config/yazi/flavors
 .config/github-copilot
