@@ -5,3 +5,5 @@
 .config/nvim.bak/
 .config/gh/
 .config/nvim/spell
+/.config/nvim/lazy-lock.json
+/.config/nvim/lazyvim.json
