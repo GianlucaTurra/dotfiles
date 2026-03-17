@@ -31,9 +31,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-completions 
 zinit light zsh-users/zsh-autosuggestions 
 zinit light Aloxaf/fzf-tab
-# Snippets
-zinit snippet OMZP::git
-
 zinit cdreplay -q
 
 
@@ -115,9 +112,6 @@ eval "$(zoxide init zsh --cmd cd)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# True color ?
-export TERM="tmux-256color"
 
 # True color ?
 export TERM="tmux-256color"
