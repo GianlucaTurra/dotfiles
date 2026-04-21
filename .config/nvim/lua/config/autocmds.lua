@@ -9,7 +9,7 @@
 
 -- Identify Django's templates
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "**/templates/*.html", "**/template/**/*.html", "*.djhtml" },
+    pattern = { "**/templates/*.html", "**/templates/**/*.html", "*.djhtml" },
     callback = function()
         vim.bo.filetype = "django-html"
     end,
