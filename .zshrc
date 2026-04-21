@@ -11,6 +11,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH=$(go env GOPATH)/bin:$PATH # golang
 export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
+export PATH="/home/gianluca/.cargo/bin:$PATH"
 
 # Plugin manager Zinit
 
@@ -123,3 +124,8 @@ export TERM="tmux-256color"
 
 # Syntax-Highlight ALWAYS AT THE END
 zinit light zsh-users/zsh-syntax-highlighting
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
