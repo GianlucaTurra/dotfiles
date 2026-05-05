@@ -1,5 +1,3 @@
-autoload -U compinit && compinit
-
 # This is from brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -14,28 +12,23 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/node@22/bin:$PATH"
 export PATH="/home/gianluca/.cargo/bin:$PATH"
 
 # Plugin manager Zinit
+autoload -Uz compinit && compinit
 
-# Home directory for zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local.share}/zinit/zinit.git"
-
-# Download Zinit, if not present
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
-	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-
-# Source the zinit file
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
-zinit light zsh-users/zsh-completions 
-zinit light zsh-users/zsh-autosuggestions 
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-# Snippets
 zinit snippet OMZP::git
-
 zinit cdreplay -q
 
+compinit
 
 # NOTE fzf
 eval "$(fzf --zsh)"
@@ -43,28 +36,6 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_DEFAULT_OPTS="--height 50% --layout=default --border"
-
-# fzf shell integration
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# _fzf_comprun() {
-#   local command=$1
-#   shift
-#
-#   case "$command" in
-#     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-#     *)            fzf "$@" ;;
-#   esac
-# }
-
-# fzf configuration
-# export FZF_DEFAULT_OPTS="--height 100% --layout=default --border"
-# export FZF_DEFAULT_COMMAND="find . -type f ! -path '*git*'"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_CTRL_T_OPTS="
-#   --walker-skip .git,node_modules,target
-#   --preview 'batcat -n --color=always {}'
-#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # bat configuration
 export BAT_THEME="ansi"
