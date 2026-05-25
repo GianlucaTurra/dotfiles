@@ -8,18 +8,19 @@
 [
   {
     "context": "Workspace && not_editing",
-    "bindings": {
-      "space f f": "file_finder::Toggle",
-      "space space": "tab_switcher::OpenInActivePane"
-    }
+    "bindings": {}
   },
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space space": "tab_switcher::OpenInActivePane",
       "shift-l": "vim::GoToTab",
       "shift-h": "vim::GoToPreviousTab",
       "space b d": "pane::CloseActiveItem",
-      "space e": "project_panel::ToggleFocus"
+      "space e": "project_panel::ToggleFocus",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename"
     }
   },
   {
